@@ -1,0 +1,33 @@
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Əli və Nino",
+  "isbn": "978-3-16",
+  "publicationYear": 1937,
+  "authorId": 1
+}
+
+###
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+"name": "Cəlil Məmmədquluzadə",
+"nationality": "Azərbaycan"
+}
+
+###
+
+PUT http://localhost:8080/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Əli və Nino (Yenilənmiş)",
+  "isbn": "978-3-16",
+  "publicationYear": 1937,
+  "authorId": 1
+}
+
+###
+GET http://localhost:8080/api/books?page=0&size=2&sort=title,asc
