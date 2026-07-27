@@ -3,11 +3,13 @@ package com.yourname.library.author;
 import com.yourname.library.author.dto.AuthorRequestDto;
 import com.yourname.library.author.dto.AuthorResponseDto;
 import com.yourname.library.exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class AuthorService {
 
     private final AuthorRepository authorRepository;

@@ -1,5 +1,5 @@
 package com.yourname.library.book;
-
+import jakarta.persistence.FetchType;
 
 import com.yourname.library.author.Author;
 import jakarta.persistence.*;
@@ -22,9 +22,7 @@ public class Book {
 
     public Integer publishedYear;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;
-
-
 }

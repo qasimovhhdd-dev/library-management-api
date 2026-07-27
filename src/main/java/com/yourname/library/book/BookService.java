@@ -5,6 +5,7 @@ import com.yourname.library.author.AuthorRepository;
 import com.yourname.library.book.dto.BookRequestDto;
 import com.yourname.library.book.dto.BookResponseDto;
 import com.yourname.library.exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 public class BookService {
 
     private final BookRepository bookRepository;
