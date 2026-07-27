@@ -38,4 +38,20 @@ public class AuthorController {
     @Operation(summary = "ID ilə konkret müəllifi göstər")
     @GetMapping("/{id}")
     public ResponseEntity<AuthorResponseDto> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(authorService.
+        return ResponseEntity.ok(authorService.getById(id));
+    }
+
+    @Operation(summary = "Mövcud müəllifi yenilə")
+    @PutMapping("/{id}")
+    public ResponseEntity<AuthorResponseDto> update(@PathVariable Long id, @Valid @RequestBody AuthorRequestDto dto) {
+        AuthorResponseDto updated = authorService.update(id, dto);
+        return ResponseEntity.ok(updated);
+    }
+
+    @Operation(summary = "Müəllifi sil")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        authorService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
