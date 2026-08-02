@@ -79,15 +79,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/api/books
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuZXd1c2VyMSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg1NTkyMzgwLCJleHAiOjE3ODU2Nzg3ODB9.U7Le-iYv8N5oFDuMqXOdBJASIwYX906Ongqh9NrCiV6xcQD-cEMkUE4Q01KD25m1
 
-###
-
-DELETE http://localhost:8080/api/books/8
-Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuZXd1c2VyMSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg1NTkyMzgwLCJleHAiOjE3ODU2Nzg3ODB9.U7Le-iYv8N5oFDuMqXOdBJASIwYX906Ongqh9NrCiV6xcQD-cEMkUE4Q01KD25m1
-
-###
 
 POST http://localhost:8080/api/auth/register
 Content-Type: application/json
