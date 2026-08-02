@@ -60,3 +60,44 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/books
 Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzYWlxIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODU1OTAzNzgsImV4cCI6MTc4NTY3Njc3OH0.ZlacnFec1kPsm3Hd_PVksb0Q-_SWNxxLZXp_4GDIkDpMR2RLNHcZv4lGuo6rxQuT
+
+###
+
+DELETE http://localhost:8080/api/books/1
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzYWlxIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzg1NTkxMjYxLCJleHAiOjE3ODU2Nzc2NjF9.TEdT0qGPcIjf9FS8nWuIHIRkgkzctnRNjHyVxP2E_Qb0SDLnIC3ODJvz1Z84Mv-T
+
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "newuser1",
+  "password": "test1234"
+}
+
+###
+
+GET http://localhost:8080/api/books
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuZXd1c2VyMSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg1NTkyMzgwLCJleHAiOjE3ODU2Nzg3ODB9.U7Le-iYv8N5oFDuMqXOdBJASIwYX906Ongqh9NrCiV6xcQD-cEMkUE4Q01KD25m1
+
+###
+
+DELETE http://localhost:8080/api/books/8
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuZXd1c2VyMSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg1NTkyMzgwLCJleHAiOjE3ODU2Nzg3ODB9.U7Le-iYv8N5oFDuMqXOdBJASIwYX906Ongqh9NrCiV6xcQD-cEMkUE4Q01KD25m1
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "roletest7",
+  "password": "test1234"
+}
+
+###
+
+DELETE http://localhost:8080/api/books/32
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJyb2xldGVzdDciLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NTY3MzUxOCwiZXhwIjoxNzg1NzU5OTE4fQ._3Zj4T-HmabJNXJkAIw4iXIwmb6joYV2EvGIHMK1Br7SIVaGWtw2oAzFjTmE6m7g
