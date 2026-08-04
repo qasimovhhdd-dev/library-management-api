@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/books")
 @Tag(name = "Books", description = "Kitablar üzərində CRUD əməliyyatları")
@@ -54,4 +56,17 @@ public class BookController {
         bookService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @Operation(summary = "Başlığa görə kitab axtar")
+    @GetMapping("/search")
+    public ResponseEntity<List<BookResponseDto>> searchByTitle(@RequestParam String title) {
+        return ResponseEntity.ok(bookService.searchByTitle(title));
+    }
+
+    @Operation(summary = "Kateqoriyaya görə kitabları göstər")
+    @GetMapping("/by-category")
+    public ResponseEntity<List<BookResponseDto>> getByCategory(@RequestParam String categoryName) {
+        return ResponseEntity.ok(bookService.findByCategory(categoryName));
+    }
+
 }

@@ -78,4 +78,18 @@ public class BookService {
                 book.getAuthor().getName()
         );
     }
+
+    public List<BookResponseDto> searchByTitle(String title) {
+        return bookRepository.findByTitleContainingIgnoreCase(title)
+                .stream()
+                .map(this::toResponseDto)
+                .toList();
+    }
+
+    public List<BookResponseDto> findByCategory(String categoryName) {
+        return bookRepository.findByCategoryName(categoryName)
+                .stream()
+                .map(this::toResponseDto)
+                .toList();
+    }
 }

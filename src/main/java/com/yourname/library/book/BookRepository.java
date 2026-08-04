@@ -1,6 +1,19 @@
 package com.yourname.library.book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
+    List<Book> findByTitleContainingIgnoreCase(String title);
+    List<Book> findByPublishedYearGreaterThan(Integer year);
+
+    @Query("SELECT b FROM Book b JOIN b.categories c WHERE c.name = :categoryName")
+    List<Book> findByCategoryName(@Param("categoryName") String categoryName);
+    @Query(value = "SELECT COUNT(*) FROM books WHERE author_id = :authorId", nativeQuery = true)
+    long countBooksByAuthorId(@Param("authorId") Long authorId);
+
+
 }
