@@ -1,5 +1,8 @@
 package com.yourname.library.book;
 import jakarta.persistence.FetchType;
+import java.util.HashSet;
+import java.util.Set;
+import com.yourname.library.category.Category;
 
 import com.yourname.library.author.Author;
 import jakarta.persistence.*;
@@ -25,4 +28,12 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;
+
+    @ManyToMany
+    @JoinTable(
+            name = "book_category",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories = new HashSet<>();
 }
