@@ -75,8 +75,7 @@ public class BookService {
                 book.getTitle(),
                 book.getIsbn(),
                 book.getPublishedYear(),
-                book.getAuthor().getName()
-        );
+                book.getAuthor().getName());
     }
 
     public List<BookResponseDto> searchByTitle(String title) {
@@ -85,9 +84,14 @@ public class BookService {
                 .map(this::toResponseDto)
                 .toList();
     }
+    public List<BookResponseDto> findByCategory(String categoryName) {return bookRepository.findByCategoryName(categoryName)
+                .stream()
+                .map(this::toResponseDto)
+                .toList();
+    }
 
-    public List<BookResponseDto> findByCategory(String categoryName) {
-        return bookRepository.findByCategoryName(categoryName)
+    public List<BookResponseDto> filterBooks(String title, String isbn, Integer year) {
+        return bookRepository.filterBooks(title, isbn, year)
                 .stream()
                 .map(this::toResponseDto)
                 .toList();

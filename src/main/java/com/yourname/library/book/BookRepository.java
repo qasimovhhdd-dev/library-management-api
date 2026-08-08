@@ -14,6 +14,17 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByCategoryName(@Param("categoryName") String categoryName);
     @Query(value = "SELECT COUNT(*) FROM books WHERE author_id = :authorId", nativeQuery = true)
     long countBooksByAuthorId(@Param("authorId") Long authorId);
+    @Query("""
+    SELECT b FROM Book b
+    WHERE (:title IS NULL OR LOWER(b.title) LIKE LOWER(CONCAT('%', :title, '%')))
+    AND (:isbn IS NULL OR b.isbn = :isbn)
+    AND (:year IS NULL OR b.publishedYear = :year)
+    """)
+    List<Book> filterBooks(
+            @Param("title") String title,
+            @Param("isbn") String isbn,
+            @Param("year") Integer year
+    );
 
 
 }

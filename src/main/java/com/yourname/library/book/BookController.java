@@ -68,5 +68,14 @@ public class BookController {
     public ResponseEntity<List<BookResponseDto>> getByCategory(@RequestParam String categoryName) {
         return ResponseEntity.ok(bookService.findByCategory(categoryName));
     }
+    @Operation(summary = "Dinamik filtrasiya - başlıq, ISBN, il üzrə (hamısı optional)")
+    @GetMapping("/filter")
+    public ResponseEntity<List<BookResponseDto>> filterBooks(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String isbn,
+            @RequestParam(required = false) Integer year
+    ) {
+        return ResponseEntity.ok(bookService.filterBooks(title, isbn, year));
+    }
 
 }
