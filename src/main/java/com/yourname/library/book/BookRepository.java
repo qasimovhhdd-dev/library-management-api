@@ -1,5 +1,6 @@
 package com.yourname.library.book;
 
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,5 +27,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             @Param("year") Integer year
     );
 
+    @Query("SELECT b FROM Book b JOIN FETCH b.author")
+    List<Book> findAllWithAuthor();
 
 }

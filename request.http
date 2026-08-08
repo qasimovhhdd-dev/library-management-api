@@ -114,3 +114,13 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/api/books/filter?title=harry&year=1997
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2MTcyNTEzLCJleHAiOjE3ODYyNTg5MTN9.hhTloTiS-1Klt6OyMnyeNDyU1Ps8L_oIqDIXFbnahkc
+
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2MTc0MTY0LCJleHAiOjE3ODYyNjA1NjR9.E44CJsLRkoNxs2lTCmUD15KPlqJY9DGc1bNODYkjzdg
+
+{
+  "bookIds": [1, 999],
+  "quantities": [2, 1]
+}
