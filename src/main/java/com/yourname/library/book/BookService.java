@@ -9,6 +9,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CacheEvict;
 
 
 import java.util.List;
@@ -38,6 +40,7 @@ public class BookService {
         Book saved = bookRepository.save(book);
         return toResponseDto(saved);
     }
+    @CacheEvict(value = "books", key = "#id")
     public BookResponseDto update(Long id, BookRequestDto dto) {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
@@ -58,13 +61,13 @@ public class BookService {
         return bookRepository.findAll(pageable)
                 .map(this::toResponseDto);
     }
-
+    @Cacheable("books")
     public BookResponseDto getById(Long id) {
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found"));
         return toResponseDto(book);
     }
-
+    @CacheEvict(value = "books", key = "#id")
     public void delete(Long id) {
         bookRepository.deleteById(id);
     }
