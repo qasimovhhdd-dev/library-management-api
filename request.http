@@ -102,13 +102,13 @@ GET /api/books/filter?title=harry
 ###
 GET http://localhost:8080/api/books/filter?title=harry
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2MTcyNTEzLCJleHAiOjE3ODYyNTg5MTN9.hhTloTiS-1Klt6OyMnyeNDyU1Ps8L_oIqDIXFbnahkc
+###
 
-### Login
 POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "testuser",
+  "username": "adminuser",
   "password": "test1234"
 }
 ###
@@ -125,15 +125,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU
   "quantities": [2, 1]
 }
 
-### 1-ci çağırış
+###
 GET http://localhost:8080/api/books/7
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2ODI1MTkyLCJleHAiOjE3ODY5MTE1OTJ9.JJwCKPNU5IW51t8yiNmXwrnm5GBquLc36N_s5mni3TU
 
-### 2-ci çağırış (eyni ID)
+###
 GET http://localhost:8080/api/books/7
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2ODI1MTkyLCJleHAiOjE3ODY5MTE1OTJ9.JJwCKPNU5IW51t8yiNmXwrnm5GBquLc36N_s5mni3TU
 
-### Upload
+###
 POST http://localhost:8080/api/files/upload
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzg2ODI1OTc0LCJleHAiOjE3ODY5MTIzNzR9.ok9lelYpzkCSb8bs125RnWMe6QAqenJbdmKqICzGJrA
 Content-Type: multipart/form-data; boundary=WebAppBoundary
@@ -144,3 +144,7 @@ Content-Type: image/png
 
 < C:\Users\library\test.png
 --WebAppBoundary--
+###
+
+POST http://localhost:8080/api/books/test-async
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NjkxMTM2MCwiZXhwIjoxNzg2OTk3NzYwfQ.swF3FAi7jxfYwAVDYGlUpeiDnme0RPfNHC3aUBGaUBI

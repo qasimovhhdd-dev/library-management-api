@@ -2,6 +2,7 @@ package com.yourname.library.book;
 
 import com.yourname.library.book.dto.BookRequestDto;
 import com.yourname.library.book.dto.BookResponseDto;
+import com.yourname.library.file.NotificationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -20,9 +21,7 @@ public class BookController {
 
     private final BookService bookService;
 
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+
 
     @Operation(summary = "Yeni kitab yarat")
     @PostMapping
@@ -78,4 +77,17 @@ public class BookController {
         return ResponseEntity.ok(bookService.filterBooks(title, isbn, year));
     }
 
+    private final NotificationService notificationService;
+
+    // constructor-a əlavə et
+    public BookController(BookService bookService, NotificationService notificationService) {
+        this.bookService = bookService;
+        this.notificationService = notificationService;
+    }
+
+    @PostMapping("/test-async")
+    public ResponseEntity<String> testAsync() {
+        notificationService.sendEmailNotification("test@example.com", "Kitab uğurla yaradıldı");
+        return ResponseEntity.ok("Sorğu dərhal cavablandı, email arxa fonda göndərilir");
+    }
 }
