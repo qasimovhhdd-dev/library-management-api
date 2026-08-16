@@ -148,3 +148,21 @@ Content-Type: image/png
 
 POST http://localhost:8080/api/books/test-async
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NjkxMTM2MCwiZXhwIjoxNzg2OTk3NzYwfQ.swF3FAi7jxfYwAVDYGlUpeiDnme0RPfNHC3aUBGaUBI
+###
+GET http://localhost:8080/api/books/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NjkxMjI1NiwiZXhwIjoxNzg2OTk4NjU2fQ.2BLJvLMGtqmHLRVFIEmT3NADKOMV3LqQtIu0dMZT-Hg
+###
+
+PUT http://localhost:8080/api/books/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NjkxMjI1NiwiZXhwIjoxNzg2OTk4NjU2fQ.2BLJvLMGtqmHLRVFIEmT3NADKOMV3LqQtIu0dMZT-Hg
+
+{
+  "title": "Harry Potter - Updated Title",
+  "isbn": "9780747532699",
+  "publicationYear": 1997,
+  "authorId": 1
+}
+###
+GET http://localhost:8080/api/books/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbnVzZXIiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTc4NjkxMjI1NiwiZXhwIjoxNzg2OTk4NjU2fQ.2BLJvLMGtqmHLRVFIEmT3NADKOMV3LqQtIu0dMZT-Hg
